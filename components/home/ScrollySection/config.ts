@@ -6,6 +6,7 @@ export type PanelConfig = {
   body: string
   cta: { label: string; href: string }
   bg: string
+  blendMode?: import('react').CSSProperties['mixBlendMode']
 }
 
 export const panels: PanelConfig[] = [
@@ -44,5 +45,6 @@ export const panels: PanelConfig[] = [
     body: "Rallenta. La natura ha tutto il tempo del mondo.",
     cta: { label: "Vivi la natura", href: "/natura" },
     bg: "#0D1A0A",
+    blendMode: 'screen',
   },
 ]

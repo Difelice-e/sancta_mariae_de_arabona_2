@@ -5,8 +5,53 @@ import Image from 'next/image'
 import { PanelConfig } from './config'
 
 type Props = {
-  panels: PanelConfig[]
+  panels: [PanelConfig, PanelConfig, PanelConfig, PanelConfig]
   progress: MotionValue<number>
+}
+
+// Static style objects — defined at module level to avoid recreation on every render
+
+const imageStyle: React.CSSProperties = {
+  objectFit: 'contain',
+  width: '100%',
+  height: 'auto',
+}
+
+const itemStyle: React.CSSProperties = {
+  width: 'clamp(200px, 20vw, 320px)',
+}
+
+// Static positioning for each diamond slot
+const pos0: React.CSSProperties = {
+  position: 'absolute',
+  bottom: '10%',
+  left: '50%',
+  translateX: '-50%',
+  ...itemStyle,
+}
+
+const pos1: React.CSSProperties = {
+  position: 'absolute',
+  top: '50%',
+  right: '8%',
+  translateY: '-50%',
+  ...itemStyle,
+}
+
+const pos2: React.CSSProperties = {
+  position: 'absolute',
+  top: '50%',
+  left: '8%',
+  translateY: '-50%',
+  ...itemStyle,
+}
+
+const pos3: React.CSSProperties = {
+  position: 'absolute',
+  top: '8%',
+  left: '50%',
+  translateX: '-50%',
+  ...itemStyle,
 }
 
 export default function DiamondIntro({ panels, progress }: Props) {
@@ -30,16 +75,6 @@ export default function DiamondIntro({ panels, progress }: Props) {
   const opacity3 = useTransform(progress, [0, 0.08, 0.18, 0.30], [0, 1, 1, 0])
   const y3 = useTransform(progress, [0, 0.12, 0.30], ['0vh', '0vh', '-80vh'])
 
-  const imageStyle = {
-    objectFit: 'contain' as const,
-    width: '100%',
-    height: 'auto',
-  }
-
-  const itemStyle = {
-    width: 'clamp(200px, 20vw, 320px)',
-  }
-
   return (
     <motion.div
       style={{
@@ -50,18 +85,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
       }}
     >
       {/* panels[0] — ristorante — BASSO */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          bottom: '10%',
-          left: '50%',
-          translateX: '-50%',
-          scale: scale0,
-          opacity: opacity0,
-          y: y0,
-          ...itemStyle,
-        }}
-      >
+      <motion.div style={{ ...pos0, scale: scale0, opacity: opacity0, y: y0 }}>
         <Image
           src={panels[0].image}
           alt={panels[0].title}
@@ -72,17 +96,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
       </motion.div>
 
       {/* panels[1] — sport — DESTRA */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '8%',
-          translateY: '-50%',
-          opacity: opacity1,
-          x: x1,
-          ...itemStyle,
-        }}
-      >
+      <motion.div style={{ ...pos1, opacity: opacity1, x: x1 }}>
         <Image
           src={panels[1].image}
           alt={panels[1].title}
@@ -93,17 +107,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
       </motion.div>
 
       {/* panels[2] — eventi — SINISTRA */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '8%',
-          translateY: '-50%',
-          opacity: opacity2,
-          x: x2,
-          ...itemStyle,
-        }}
-      >
+      <motion.div style={{ ...pos2, opacity: opacity2, x: x2 }}>
         <Image
           src={panels[2].image}
           alt={panels[2].title}
@@ -114,23 +118,13 @@ export default function DiamondIntro({ panels, progress }: Props) {
       </motion.div>
 
       {/* panels[3] — natura — ALTO */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '8%',
-          left: '50%',
-          translateX: '-50%',
-          opacity: opacity3,
-          y: y3,
-          ...itemStyle,
-        }}
-      >
+      <motion.div style={{ ...pos3, opacity: opacity3, y: y3 }}>
         <Image
           src={panels[3].image}
           alt={panels[3].title}
           width={320}
           height={320}
-          style={{ ...imageStyle, mixBlendMode: 'screen' }}
+          style={panels[3].blendMode ? { ...imageStyle, mixBlendMode: panels[3].blendMode } : imageStyle}
         />
       </motion.div>
     </motion.div>
