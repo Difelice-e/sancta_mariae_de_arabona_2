@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useSpring, useInView } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import DiamondIntro from './DiamondIntro'
 import Panel from './Panel'
@@ -21,7 +22,7 @@ const PANEL_RANGES: [number, number][] = [
   [0.12, 0.30],
   [0.30, 0.48],
   [0.48, 0.66],
-  [0.66, 0.84],
+  [0.66, 1.0],
 ]
 
 // --- MobilePanelItem ---
@@ -114,7 +115,7 @@ function MobilePanelItem({ config }: { config: PanelConfig }) {
         >
           {config.body}
         </p>
-        <a
+        <Link
           href={config.cta.href}
           style={{
             fontFamily: 'Inter, sans-serif',
@@ -128,7 +129,7 @@ function MobilePanelItem({ config }: { config: PanelConfig }) {
           }}
         >
           {config.cta.label}
-        </a>
+        </Link>
       </motion.div>
     </div>
   )

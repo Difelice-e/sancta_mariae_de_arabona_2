@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useTransform, type MotionValue } from 'framer-motion'
 import type { PanelConfig } from './config'
 
@@ -134,9 +135,9 @@ export default function Panel({ config, progress, range, prevBg, isFirst }: Prop
           <p style={subtitleStyle}>{config.subtitle}</p>
           <h2 style={titleStyle}>{config.title}</h2>
           <p style={bodyStyle}>{config.body}</p>
-          <a href={config.cta.href} style={ctaStyle}>
+          <Link href={config.cta.href} style={ctaStyle}>
             {config.cta.label}
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
