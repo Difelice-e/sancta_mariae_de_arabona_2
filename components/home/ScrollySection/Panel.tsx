@@ -83,6 +83,12 @@ const imageSideStyle: React.CSSProperties = {
   justifyContent: 'center',
 }
 
+const IMAGE_BASE_STYLE = {
+  objectFit: 'contain' as const,
+  width: 'clamp(280px, 35vw, 520px)',
+  height: 'auto',
+} satisfies React.CSSProperties
+
 // ---
 
 type Props = {
@@ -115,10 +121,8 @@ export default function Panel({ config, progress, range, prevBg, isFirst }: Prop
   const textX = useTransform(progress, [enterStart, enterEnd], ['-40px', '0px'])
   const textOpacity = useTransform(progress, [enterStart, enterEnd], [0, 1])
 
-  const imageStyle: React.CSSProperties = {
-    objectFit: 'contain',
-    width: 'clamp(280px, 35vw, 520px)',
-    height: 'auto',
+  const imageStyle = {
+    ...IMAGE_BASE_STYLE,
     ...(config.blendMode ? { mixBlendMode: config.blendMode } : {}),
   }
 
@@ -138,7 +142,6 @@ export default function Panel({ config, progress, range, prevBg, isFirst }: Prop
         <motion.div
           style={{
             ...imageSideStyle,
-            opacity: panelOpacity,
             ...(isFirst ? { y: imageY } : { x: imageX }),
           }}
         >
