@@ -22,32 +22,34 @@ const itemStyle: React.CSSProperties = {
 }
 
 // Static positioning for each diamond slot
-const pos0: React.CSSProperties = {
-  position: 'absolute',
+// translateX/Y are valid motion style values on motion.div but not in React.CSSProperties,
+// so we type these as a plain object and let framer-motion accept them.
+const pos0 = {
+  position: 'absolute' as const,
   bottom: '10%',
   left: '50%',
   translateX: '-50%',
   ...itemStyle,
 }
 
-const pos1: React.CSSProperties = {
-  position: 'absolute',
+const pos1 = {
+  position: 'absolute' as const,
   top: '50%',
   right: '8%',
   translateY: '-50%',
   ...itemStyle,
 }
 
-const pos2: React.CSSProperties = {
-  position: 'absolute',
+const pos2 = {
+  position: 'absolute' as const,
   top: '50%',
   left: '8%',
   translateY: '-50%',
   ...itemStyle,
 }
 
-const pos3: React.CSSProperties = {
-  position: 'absolute',
+const pos3 = {
+  position: 'absolute' as const,
   top: '8%',
   left: '50%',
   translateX: '-50%',
