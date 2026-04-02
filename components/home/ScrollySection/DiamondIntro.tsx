@@ -57,6 +57,8 @@ const pos3 = {
 }
 
 export default function DiamondIntro({ panels, progress }: Props) {
+  if (panels.length < 4) return null
+
   // Wrapper opacity — fade out as panel 1 enters
   const wrapperOpacity = useTransform(progress, [0.25, 0.32], [1, 0])
 
