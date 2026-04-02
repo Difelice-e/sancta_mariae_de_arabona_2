@@ -142,12 +142,9 @@ export default function ScrollySection() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024)
     check()
+    setMounted(true)
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
@@ -161,32 +158,25 @@ export default function ScrollySection() {
 
   if (!mounted) return null
 
-  if (isMobile) {
-    return (
-      <div style={{ minHeight: '400vh' }}>
-        {panels.map((panel) => (
-          <MobilePanelItem key={panel.id} config={panel} />
-        ))}
-      </div>
-    )
-  }
-
   return (
-    <div ref={containerRef} style={{ height: '600vh', position: 'relative' }}>
-      <div style={STICKY_WRAPPER_STYLE}>
-        <DiamondIntro panels={panels as [PanelConfig, PanelConfig, PanelConfig, PanelConfig]} progress={smoothProgress} />
-
-        {panels.map((panel, i) => (
-          <Panel
-            key={panel.id}
-            config={panel}
-            progress={smoothProgress}
-            range={PANEL_RANGES[i]}
-            prevBg={i > 0 ? panels[i - 1].bg : undefined}
-            isFirst={i === 0}
-          />
-        ))}
-      </div>
+    <div ref={containerRef} style={{ position: 'relative', height: isMobile ? `${panels.length * 100}vh` : `${panels.length * 150}vh` }}>
+      {isMobile ? (
+        panels.map((panel) => <MobilePanelItem key={panel.id} config={panel} />)
+      ) : (
+        <div style={STICKY_WRAPPER_STYLE}>
+          <DiamondIntro panels={panels} progress={smoothProgress} />
+          {panels.map((panel, i) => (
+            <Panel
+              key={panel.id}
+              config={panel}
+              progress={smoothProgress}
+              range={PANEL_RANGES[i]}
+              prevBg={i > 0 ? panels[i - 1].bg : undefined}
+              isFirst={i === 0}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

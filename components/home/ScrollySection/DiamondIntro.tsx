@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { PanelConfig } from './config'
 
 type Props = {
-  panels: [PanelConfig, PanelConfig, PanelConfig, PanelConfig]
+  panels: PanelConfig[]
   progress: MotionValue<number>
 }
 
