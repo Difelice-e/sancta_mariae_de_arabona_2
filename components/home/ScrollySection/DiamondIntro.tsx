@@ -91,7 +91,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
           alt={panels[0].title}
           width={320}
           height={320}
-          style={imageStyle}
+          style={{ ...imageStyle, ...(panels[0].blendMode ? { mixBlendMode: panels[0].blendMode } : {}) }}
         />
       </motion.div>
 
@@ -102,7 +102,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
           alt={panels[1].title}
           width={320}
           height={320}
-          style={imageStyle}
+          style={{ ...imageStyle, ...(panels[1].blendMode ? { mixBlendMode: panels[1].blendMode } : {}) }}
         />
       </motion.div>
 
@@ -113,7 +113,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
           alt={panels[2].title}
           width={320}
           height={320}
-          style={imageStyle}
+          style={{ ...imageStyle, ...(panels[2].blendMode ? { mixBlendMode: panels[2].blendMode } : {}) }}
         />
       </motion.div>
 
@@ -124,7 +124,7 @@ export default function DiamondIntro({ panels, progress }: Props) {
           alt={panels[3].title}
           width={320}
           height={320}
-          style={panels[3].blendMode ? { ...imageStyle, mixBlendMode: panels[3].blendMode } : imageStyle}
+          style={{ ...imageStyle, ...(panels[3].blendMode ? { mixBlendMode: panels[3].blendMode } : {}) }}
         />
       </motion.div>
     </motion.div>
