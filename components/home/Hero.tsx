@@ -189,10 +189,10 @@ export default function Hero() {
       <div className="absolute inset-0 z-[3] pointer-events-none">
         {(
           [
-            { pos: 'top-6 left-6', b: 'border-t border-l' },
-            { pos: 'top-6 right-6', b: 'border-t border-r' },
-            { pos: 'bottom-6 left-6', b: 'border-b border-l' },
-            { pos: 'bottom-6 right-6', b: 'border-b border-r' },
+            { pos: 'top-3 left-3 md:top-6 md:left-6', b: 'border-t border-l' },
+            { pos: 'top-3 right-3 md:top-6 md:right-6', b: 'border-t border-r' },
+            { pos: 'bottom-3 left-3 md:bottom-6 md:left-6', b: 'border-b border-l' },
+            { pos: 'bottom-3 right-3 md:bottom-6 md:right-6', b: 'border-b border-r' },
           ] as const
         ).map(({ pos, b }, i) => (
           <motion.div
@@ -218,7 +218,7 @@ export default function Hero() {
 
       {/* ── ACTIVE SLIDE LABEL (top-right) ────────────────── */}
       <motion.div
-        className="absolute top-7 right-6 lg:right-8 z-[4] flex items-center gap-2"
+        className="absolute top-7 right-6 lg:right-8 z-[4] hidden md:flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.0 }}
@@ -243,7 +243,7 @@ export default function Hero() {
 
       {/* ── HERO CONTENT ──────────────────────────────────── */}
       <motion.div
-        className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-24"
+        className="relative z-10 h-full flex flex-col justify-end pb-36 md:pb-44"
         style={{ opacity: contentOpacity, y: contentY }}
       >
         <div className="max-w-content mx-auto px-6 lg:px-12 w-full">
@@ -286,7 +286,7 @@ export default function Hero() {
 
           {/* Subtext + CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-end gap-7 sm:gap-16"
+            className="flex flex-col gap-7"
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.85, ease }}
