@@ -39,7 +39,7 @@ const highlights = [
         <path d="M11 16h6M11 12h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
       </svg>
     ),
-    headline: 'Natura Integra, Abruzzo Autentico',
+    headline: 'Abruzzo Autentico',
     body: 'Circondati da boschi di querce, campi coltivati e un orizzonte che arriva fino ai monti della Maiella. La natura non è scenografia, è parte dell\'esperienza.',
     detail: '200+ ettari · A 45 min dal mare',
   },

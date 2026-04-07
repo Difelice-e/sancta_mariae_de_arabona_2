@@ -32,7 +32,7 @@ export default function CtaSection() {
           Mood: Warm lights from windows, silhouette of trees, sky gradient
         */}
         <Image
-          src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=80"
+          src="/images/full.webp"
           alt="La tenuta di sera — luci calde, natura silenziosa"
           fill
           className="object-cover"

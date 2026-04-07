@@ -191,8 +191,8 @@ export default function Hero() {
           [
             { pos: 'top-6 left-6', b: 'border-t border-l' },
             { pos: 'top-6 right-6', b: 'border-t border-r' },
-            { pos: 'bottom-14 left-6', b: 'border-b border-l' },
-            { pos: 'bottom-14 right-6', b: 'border-b border-r' },
+            { pos: 'bottom-6 left-6', b: 'border-b border-l' },
+            { pos: 'bottom-6 right-6', b: 'border-b border-r' },
           ] as const
         ).map(({ pos, b }, i) => (
           <motion.div
@@ -218,7 +218,7 @@ export default function Hero() {
 
       {/* ── ACTIVE SLIDE LABEL (top-right) ────────────────── */}
       <motion.div
-        className="absolute top-7 right-6 lg:right-12 z-[4] flex items-center gap-2"
+        className="absolute top-7 right-6 lg:right-8 z-[4] flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.0 }}
@@ -314,7 +314,7 @@ export default function Hero() {
 
       {/* ── SLIDE DOTS (bottom-left) ──────────────────────── */}
       <motion.div
-        className="absolute bottom-8 left-6 lg:left-12 z-10 flex items-center gap-2"
+        className="absolute bottom-8 left-6 lg:left-8 z-10 flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.4 }}
@@ -356,7 +356,7 @@ export default function Hero() {
 
       {/* ── COORDINATES (bottom-right) ────────────────────── */}
       <motion.div
-        className="absolute bottom-8 right-6 lg:right-12 z-10"
+        className="absolute bottom-8 right-6 lg:right-8 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.2 }}

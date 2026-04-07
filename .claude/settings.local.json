@@ -6,7 +6,20 @@
       "Bash(timeout 15 npx next build)",
       "Bash(timeout 30 npx next build)",
       "Bash(timeout 45 npx next build)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(xargs cat:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(git worktree:*)",
+      "Bash(git stash:*)",
+      "Bash(git merge:*)",
+      "Bash(git branch:*)",
+      "Bash(grep -E 'font|gold|navy|ivory|cormorant|playfair' /home/emanuele/projects/sancta_mariae_de_arabona_2/tailwind.config.*)",
+      "Bash(cat /home/emanuele/projects/sancta_mariae_de_arabona_2/tailwind.config.*)",
+      "Bash(mv \"2024-09-09.webp\" \"estate_panorama.webp\")",
+      "Bash(mv \"unnamed.webp\" \"estate_detail.webp\")"
     ]
   }
 }

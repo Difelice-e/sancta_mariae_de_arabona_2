@@ -9,7 +9,7 @@ const ease = [0.22, 1, 0.36, 1] as const
 const stats = [
   { value: 200, suffix: '+', label: 'Ettari', sublabel: 'di natura incontaminata' },
   { value: 5, suffix: '', label: 'Esperienze', sublabel: 'pensate per voi' },
-  { value: 12, suffix: ' km', label: 'dai Monaci', sublabel: 'Cistercensi di Arabona' },
+  { value: 12, suffix: '', label: 'km dai Monaci', sublabel: 'Cistercensi di Arabona' },
 ]
 
 /* ── Animated counter ──────────────────────────────────────────────── */
@@ -91,13 +91,6 @@ function StatItem({
   )
 }
 
-/*
-  IMAGES: Replace with actual estate photography
-  - Large: Wide shot of the estate property at golden hour or dusk
-  - Small top: Architectural detail — stone wall, arched doorway, etc.
-  - Small bottom: Close-up of local produce, wine glass, or table detail
-*/
-
 export default function Atmosphere() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
@@ -140,7 +133,7 @@ export default function Atmosphere() {
               transition={{ duration: 1, ease }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80"
+                src="/images/estate_panorama.webp"
                 alt="La tenuta Sancta Mariae de Arabona al tramonto"
                 fill
                 className="object-cover"
@@ -148,7 +141,7 @@ export default function Atmosphere() {
               />
               <div
                 className="absolute inset-0"
-                style={{ background: 'linear-gradient(135deg, rgba(6,14,26,0.08) 0%, transparent 50%)' }}
+                style={{ background: 'linear-gradient(135deg, rgba(6,14,26,0.12) 0%, transparent 50%)' }}
               />
             </motion.div>
 
@@ -161,8 +154,8 @@ export default function Atmosphere() {
               transition={{ duration: 0.9, delay: 0.2, ease }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
-                alt="Dettaglio della cucina della tenuta"
+                src="/images/estate_detail.webp"
+                alt="Dettaglio della tenuta"
                 fill
                 className="object-cover"
                 sizes="25vw"
@@ -183,7 +176,7 @@ export default function Atmosphere() {
 
           {/* ── Vertical divider (desktop only) ──────────────────────── */}
           <motion.div
-            className="hidden lg:block w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent self-stretch"
+            className="hidden lg:block w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent self-stretch"
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1, delay: 0.4, ease }}
@@ -199,7 +192,7 @@ export default function Atmosphere() {
               transition={{ duration: 0.6, delay: 0.15, ease }}
             >
               <span className="block w-6 h-px bg-gold" />
-              <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-warm">
+              <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-navy/70">
                 02 — L&apos;Anima del Luogo
               </span>
             </motion.div>
